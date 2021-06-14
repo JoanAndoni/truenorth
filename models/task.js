@@ -17,8 +17,8 @@ const TaskSchema = mongoose.Schema({
 
 const Task = module.exports = mongoose.model('Task', TaskSchema)
 
-module.exports.addTask = (newTask, callback) => {
-    newTask.save(callback);
+module.exports.addTask = async (newTask, callback) => {
+    await newTask.save(callback);
 }
 
 module.exports.completeTask = (id, task, callback) => {
