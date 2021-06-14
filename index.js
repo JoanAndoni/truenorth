@@ -24,7 +24,7 @@ app.use(express.json());
 
 // Routes
 const tasks = require('./routes/tasks');
-app.use('/tasks', tasks);
+app.use('', tasks);
 
 app.get('/', (req, res) => {
     res.status(400).send('Invalid Endpoint');

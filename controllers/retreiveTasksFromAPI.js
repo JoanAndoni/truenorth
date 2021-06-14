@@ -6,9 +6,10 @@ export async function retreiveTasksFromAPI(req, res, next) {
     const numberTasks = req.query.noTasks;
     const tasksRetreived = await getTasksFromAPI(numberTasks);
     const tasksCreated = [];
+
     await asyncForEach(tasksRetreived, async (task) => tasksCreated.push(await createTask(task)));
 
-    return res.status(201).send({
+    res.status(201).send({
         success: true,
         tasksCreated
     });
@@ -21,6 +22,7 @@ export async function getTasksFromAPI(numberTasks) {
             const tasksRetrieved = response.data[0];
             tasksFormated = tasksRetrieved.split('.');
             tasksFormated = tasksFormated.filter(t => t !== '');
+            tasksFormated = tasksFormated.map(t => t.trim());
         }).catch(err => {
             console.error(err);
         });
