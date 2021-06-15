@@ -13,7 +13,9 @@ npm i
 
 ## Usage
 
-- The credentials for the database are in the file: example.env so you will need to execute the following code to use them before running the code: ( I know leaving the credentials on the repository is a bad practice, I did it so you don't have to create one to use the API)
+- The credentials for the database are in the file: example.env so you will need to execute the following code to use them before running the code: 
+
+> I know leaving the credentials on the repository is a bad practice, I did it so you don't have to create one to use the API
 
 ```bash
 cp example.env .env
@@ -24,5 +26,7 @@ cp example.env .env
 ```bash
 npm start
 ```
+
+> I made an extra petition which is the `/retreiveTasksFromAPI` so we can populate the DB and remove the idempotency. This route is a GET petition with a param named `noTasks = Number of tasks` so we can populated with the number of tasks that we want from [Hipster Ipsium API](https://hipsum.co/the-api/)
 
 Start consuming the endpoints :rocket:
